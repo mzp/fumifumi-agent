@@ -1,0 +1,12 @@
+version: "2"
+services:
+  app:
+    build:
+      context: ./config/docker/
+      dockerfile: Dockerfile.app
+    volumes:
+      - .:/fumifumi
+      - bundle-data:/usr/local/bundle/
+volumes:
+  bundle-data:
+    driver: local
