@@ -3,3 +3,8 @@ source "https://rubygems.org"
 
 gem 'faraday'
 gem 'faraday_middleware'
+
+group :development, :test do
+  gem 'rake'
+  gem 'rubocop'
+end
