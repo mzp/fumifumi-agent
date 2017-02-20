@@ -3,8 +3,8 @@ require 'faraday_middleware'
 
 module Fumifumi
   class Client
-    def upload(path)
-      response = client.post('magazines')
+    def upload(_path)
+      client.post('magazines')
     end
 
     def client

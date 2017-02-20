@@ -1,7 +1,11 @@
 require 'pathname'
 require 'fumifumi'
 
-class Cli < Struct.new(:dirs)
+class Cli
+  def initialize(dirs)
+    @dirs = dirs
+  end
+
   def run!
     dirs.each do |dir|
       glob(dir, '**/*.epub') do |path|
@@ -12,6 +16,8 @@ class Cli < Struct.new(:dirs)
   end
 
   private
+
+  attr_reader :dirs
 
   def glob(base, pattern)
     path = Pathname.new(base).join(pattern)

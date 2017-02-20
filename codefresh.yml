@@ -1,0 +1,24 @@
+version: '1.0'
+steps:
+  BuildingDockerImage:
+    title: Building Docker Image
+    type: build
+    image_name: mzpi/fumifumi-rsync-agent
+    working_directory: .
+    dockerfile: config/docker/Dockerfile.app
+  RunningUnitTests:
+    title: Running Unit Tests
+    image: '${{BuildingDockerImage}}'
+    commands:
+      - bundle install --with test
+      - bundle exec rubocop
+    on_success:
+      metadata:
+        set:
+          - '${{BuildingDockerImage.imageId}}':
+              - CF_QUALITY: true
+    on_fail:
+      metadata:
+        set:
+          - '${{BuildingDockerImage.imageId}}':
+              - CF_QUALITY: false
