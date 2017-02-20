@@ -2,8 +2,8 @@ version: "2"
 services:
   app:
     build:
-      context: ./config/docker/
-      dockerfile: Dockerfile.app
+      context: .
+      dockerfile: config/docker/Dockerfile.app
     volumes:
       - .:/fumifumi
       - bundle-data:/usr/local/bundle/
