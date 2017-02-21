@@ -4,8 +4,8 @@ require 'faraday_middleware'
 
 module Fumifumi
   class Client
-    def upload(_path)
-      client.post('magazines')
+    def upload(path)
+      client.post('magazines', file: Faraday::UploadIO.new(path.open, 'application/epub'))
     end
 
     def client
