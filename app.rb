@@ -1,6 +1,5 @@
 # frozen_string_literal: true
-$LOAD_PATH.unshift './app'
-$LOAD_PATH.unshift './lib'
+$LOAD_PATH.unshift './app', './lib'
 
 require 'cli'
 

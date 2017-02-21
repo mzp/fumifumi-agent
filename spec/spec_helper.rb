@@ -2,7 +2,7 @@
 require 'pathname'
 require 'webmock/rspec'
 
-$LOAD_PATH.unshift './app'
+$LOAD_PATH.unshift './app', './lib'
 
 class Spec
   class << self
