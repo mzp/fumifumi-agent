@@ -14,9 +14,9 @@ RSpec.describe Fumifumi::Client do
       it { expect(subject).to be_truthy }
     end
 
-    xcontext '403 Forbidden' do
+    context '403 Forbidden' do
       let(:response) { { status: 403, body: '' } }
-      it { expect { subject }.to raise_error }
+      it { expect { subject }.to raise_error(Fumifumi::ResponseError) }
     end
   end
 end

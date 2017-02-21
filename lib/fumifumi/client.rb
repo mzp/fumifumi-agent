@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 require 'faraday'
 require 'faraday_middleware'
+require 'fumifumi/response_error'
 
 module Fumifumi
   class Client
     def upload(path)
-      client.post('magazines', file: Faraday::UploadIO.new(path.open, 'application/epub'))
+      client.post('magazines', file: Faraday::UploadIO.new(path.open, 'application/epub')).tap do |response|
+        raise ResponseError, response.body unless response.status == 200
+      end
     end
 
     def client
