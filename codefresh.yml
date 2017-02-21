@@ -12,6 +12,7 @@ steps:
     commands:
       - bundle install --with test
       - bundle exec rubocop
+      - bundle exec rspec
     on_success:
       metadata:
         set:

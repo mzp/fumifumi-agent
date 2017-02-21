@@ -8,3 +8,8 @@ group :development, :test do
   gem 'rake'
   gem 'rubocop'
 end
+
+group :test do
+  gem 'rspec'
+  gem 'webmock'
+end
