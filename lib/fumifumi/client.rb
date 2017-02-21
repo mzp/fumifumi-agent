@@ -22,6 +22,10 @@ module Fumifumi
       Api::Upload.new(client).call(path)
     end
 
+    def exist?(title)
+      Api::Exist.new(client).call(title)
+    end
+
     private
 
     def client
