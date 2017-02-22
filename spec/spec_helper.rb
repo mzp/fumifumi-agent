@@ -3,6 +3,7 @@ require 'pathname'
 require 'webmock/rspec'
 
 $LOAD_PATH.unshift './app', './lib'
+require 'fumifumi'
 
 class Spec
   class << self

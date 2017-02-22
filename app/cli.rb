@@ -10,8 +10,12 @@ class Cli
   def run!
     dirs.each do |dir|
       glob(dir, '**/*.epub') do |path|
-        puts path.to_s
-        client.upload(path)
+        puts path.basename.to_s
+        if client.exist?(path.basename)
+          puts '--> skip'
+        else
+          client.upload(path)
+        end
       end
     end
   end
