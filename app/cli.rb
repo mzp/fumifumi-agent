@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 require 'pathname'
+require 'optparse'
 require 'fumifumi'
 
 class Cli
   def initialize(dirs)
-    @dirs = dirs
+    @dirs = parser.parse(dirs)
   end
 
   def run!
@@ -31,5 +32,11 @@ class Cli
 
   def client
     @client ||= Fumifumi::Client.new
+  end
+
+  def parser
+    @parser ||= OptionParser.new.tap do |parser|
+      parser.on('-f FILE') { |path| load path }
+    end
   end
 end
