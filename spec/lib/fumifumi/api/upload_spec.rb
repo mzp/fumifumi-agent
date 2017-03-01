@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Fumifumi::Api::Upload do
-  let(:url) { 'http://192.168.99.100:3000/api/agent/magazines' }
+  let(:url) { 'http://test.local/api/agent/magazines' }
   before { stub_request(:post, url).and_return(response) }
 
   let(:client) { Fumifumi::Client.build_client }

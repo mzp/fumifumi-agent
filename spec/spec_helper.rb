@@ -12,3 +12,7 @@ class Spec
     end
   end
 end
+
+Fumifumi.config do
+  url 'http://test.local'
+end
