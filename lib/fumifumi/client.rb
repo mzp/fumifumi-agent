@@ -8,7 +8,7 @@ module Fumifumi
       def build_client
         Faraday.new(
           url: URI.join(Config.url, '/api/agent'),
-          headers: { user_agent: 'Fumifumi Rsync Agent' }
+          headers: { user_agent: 'Fumifumi Agent' }
         ) do |faraday|
           faraday.request :multipart
           faraday.response :json

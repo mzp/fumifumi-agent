@@ -3,7 +3,7 @@ steps:
   BuildingDockerImage:
     title: Building Docker Image
     type: build
-    image_name: mzpi/fumifumi-rsync-agent
+    image_name: mzpi/fumifumi-agent
     working_directory: .
     dockerfile: config/docker/Dockerfile.app
   RunningUnitTests:
