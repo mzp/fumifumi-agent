@@ -23,3 +23,12 @@ steps:
         set:
           - '${{BuildingDockerImage.imageId}}':
               - CF_QUALITY: false
+  DeployToDockerHub:
+    type: push
+    description: Push to docker hub
+    candidate: ${{BuildingDockerImage}}
+    tag: latest
+    when:
+      branch:
+        only:
+          - master
